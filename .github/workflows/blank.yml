@@ -24,3 +24,10 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
+
+      - name: Azure Login
+        uses: Azure/login@v1
+        with:
+          # Paste output of 'az ad sp create-for-rbac' as value of secret variable: AZURE_CREDENTIALS
+          creds: # optional
+          
