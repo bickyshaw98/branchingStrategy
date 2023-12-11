@@ -52,7 +52,7 @@ jobs:
         uses: azure/login@v1
         with:
             creds: ${{ secrets.AZURE_SPN_CREDENTIAL }}
-
+#action permission added
       - name: 'deploy storage account bicep'
         working-directory: '${{github.workspace}}/actions/bicep'
         run: |
