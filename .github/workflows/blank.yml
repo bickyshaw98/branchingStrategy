@@ -16,6 +16,7 @@ stages:
 - stage: Dev
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
   jobs:
+  - job:
     # This workflow contains a single job called "build"
     bicep_build:
       name: bicep build 
@@ -62,6 +63,7 @@ stages:
 - stage: Test
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
   jobs:
+  - job:
     # This workflow contains a single job called "build"
     bicep_build:
       name: bicep build 
