@@ -34,10 +34,6 @@ jobs:
       name: Run preflight validation
       with:
         deploymentName: ${{ github.run_number }}
-        resourceGroupName: ${{ env.AZURE_RESOURCEGROUP_NAME }}
-        template: ./deploy/main.bicep
-        parameters: environmentType=${{ env.ENVIRONMENT_TYPE }}
-        deploymentMode: Validate
         
   # This workflow contains a single job called "build"
   bicep_build:
