@@ -24,5 +24,6 @@ jobs:
     - uses: azure/arm-deploy@v1
       name: Run preflight validation
       with:
+        resourceGroupName: demo-rg
         template: ./actions/storage.bicep
         deploymentMode: Validate
