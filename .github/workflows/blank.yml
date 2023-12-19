@@ -52,7 +52,7 @@ jobs:
       with:
         creds: ${{ secrets.AZURE_SPN_CREDENTIAL }}
     - uses: azure/arm-deploy@v1
-      name: Deploy website
+      name: Deploy storage account
       with:
         failOnStdErr: false
         deploymentName: ${{ github.run_number }}
