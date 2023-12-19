@@ -7,9 +7,6 @@
       },
       "location": {
         "value": "west europe"
-      },
-      "resourceGroup":{
-         "value": "demo-rg"
       }
     }
   }
