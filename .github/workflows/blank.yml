@@ -23,7 +23,8 @@ jobs:
         creds: ${{ secrets.AZURE_SPN_CREDENTIAL }}
     - uses: azure/arm-deploy@v1
       name: Run preflight validation
+
       with:
         resourceGroupName: demo-rg
-        template: ./actions/storage.bicep
+        template: ./actions/bicep/storage.bicep
         deploymentMode: Validate
