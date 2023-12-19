@@ -14,7 +14,7 @@ on:
   workflow_dispatch:
 
 env:
-  AZURE_RESOURCEGROUP_NAME: ToyWebsiteTest
+  AZURE_RESOURCEGROUP_NAME: demo-rg
   ENVIRONMENT_TYPE: Test
 
 jobs:
