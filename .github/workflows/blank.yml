@@ -25,6 +25,5 @@ jobs:
       name: Run preflight validation
       working-directory: '${{github.workspace}}/actions/bicep'
       with:
-        resourceGroupName: ${{ env.AZURE_RESOURCEGROUP_NAME }}
         template: ./strorage.bicep
         deploymentMode: Validate
