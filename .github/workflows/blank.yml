@@ -67,7 +67,7 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
-    needs: [lint, validate, validate_changes]
+    needs: [lint_Sanity_Check, syntax_check, validate_changes]
     steps:
     - uses: actions/checkout@v3
     - uses: azure/login@v1
