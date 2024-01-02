@@ -25,7 +25,7 @@ jobs:
     - uses: actions/checkout@v3
     - name: Run Bicep linter
       run: |
-        bicep build --stdout ./actions/bicep/storage.bicep | bicep validate
+        bicep build --stdout ./actions/bicep/storage.bicep
         
   syntax_check:
     name: Syntax check using bicep validate
