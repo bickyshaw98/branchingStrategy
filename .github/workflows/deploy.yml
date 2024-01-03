@@ -6,7 +6,7 @@ name: azure bicep deployment
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ release ]
+    branches: [ release* ]
   pull_request:
     branches: [ none ]
 
