@@ -1,15 +1,15 @@
 # This is a basic workflow to help you get started with Actions
 
-name: azure bicep validate pipeline
+name: validate pipeline
 
 # Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the main branch
+  # Triggers the workflow on push or pull request events but only for the feature branch
   push:
-    branches: [ feature/* ]
+    branches: [ feature* ]
   pull_request:
     branches:
-      - release/*
+      - release*
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -52,7 +52,7 @@ jobs:
     name: Validate changes using bicep what-if
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-    needs: [lint_Sanity_Check]
+    needs: [lint_Sanity_Check, syntax_check]
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
