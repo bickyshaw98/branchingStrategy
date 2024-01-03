@@ -14,7 +14,7 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-
+# Declaring Environment variables
 env:
   AZURE_RESOURCEGROUP_NAME: demo-rg
   ENVIRONMENT_LOCATION: EastUS
