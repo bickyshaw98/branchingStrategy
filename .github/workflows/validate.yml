@@ -59,6 +59,7 @@ jobs:
         with:
           approvers: myteam
           minimum-approvals: 1
+          exclude-workflow-initiator-as-approver: false
       
   validate_changes:
     name: Validate changes using bicep what-if
