@@ -12,7 +12,12 @@ on:
       - release*
 
   # Allows you to run this workflow manually from the Actions tab
+  fork:
   workflow_dispatch:
+    inputs:
+      approval:
+        description: 'Approve workflow execution'
+        required: true
 
 # Declaring Environment variables
 env:
