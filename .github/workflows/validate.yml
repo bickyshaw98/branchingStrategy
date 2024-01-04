@@ -49,6 +49,7 @@ jobs:
         deploymentMode: Validate
   approval_gate:
     runs-on: ubuntu-latest
+    needs: syntax_check
     if: github.event.inputs.approval == 'true'
 
     steps:
