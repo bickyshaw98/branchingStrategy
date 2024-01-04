@@ -1,21 +1,23 @@
 # This is a basic workflow to help you get started with Actions
-#adding comment
-name: validate pipeline
+
+name: azure bicep validate pipeline
 
 # Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the feature branch
+  # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ feature* ]
+    branches: [ feature/* ]
   pull_request:
     branches:
-      - release*
+      - release/*
+  
+  discussion:
+    issues: write
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-  
 
-# Declaring Environment variables
+
 env:
   AZURE_RESOURCEGROUP_NAME: demo-rg
   ENVIRONMENT_LOCATION: EastUS
@@ -34,7 +36,6 @@ jobs:
   syntax_check:
     name: Syntax check using bicep validate
     runs-on: ubuntu-latest
-    needs: lint_Sanity_Check
     steps:
     - uses: actions/checkout@v3
     - uses: azure/login@v1
@@ -49,23 +50,30 @@ jobs:
         template: ./actions/bicep/storage.bicep
         parameters: location=${{ env.ENVIRONMENT_LOCATION }}
         deploymentMode: Validate
-  
-  approval_gate:
+
+
+  Manual_approval:
+    name: manual approval
+    # The type of runner that the job will run on
     runs-on: ubuntu-latest
-    needs: syntax_check
+    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: Wait for approval
-        uses: trstringer/manual-approval@v1
+      - uses: trstringer/manual-approval@v1
         with:
-          approvers: myteam
+          secret: ${{ github.TOKEN }}
+          approvers: bickyshaw98
           minimum-approvals: 1
+          issue-title: "Deploying v1.3.5 to prod from staging"
+          issue-body: "Please approve or deny the deployment of version v1.3.5."
           exclude-workflow-initiator-as-approver: false
-      
+          additional-approved-words: ''
+          additional-denied-words: ''
+
   validate_changes:
     name: Validate changes using bicep what-if
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-    needs: approval_gate
+    needs: [lint_Sanity_Check]
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
