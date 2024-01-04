@@ -47,7 +47,14 @@ jobs:
         template: ./actions/bicep/storage.bicep
         parameters: location=${{ env.ENVIRONMENT_LOCATION }}
         deploymentMode: Validate
-        
+  approval_gate:
+    runs-on: ubuntu-latest
+    if: github.event.inputs.approval == 'true'
+
+    steps:
+      - name: Request approval
+        run: echo "The workflow is pending approval"
+      
   validate_changes:
     name: Validate changes using bicep what-if
     # The type of runner that the job will run on
