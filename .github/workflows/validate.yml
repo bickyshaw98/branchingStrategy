@@ -50,7 +50,7 @@ jobs:
         parameters: location=${{ env.ENVIRONMENT_LOCATION }}
         deploymentMode: Validate
   
-  myjob:
+  approval_gate:
     runs-on: ubuntu-latest
     needs: syntax_check
     steps:
