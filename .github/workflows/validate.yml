@@ -47,7 +47,25 @@ jobs:
         template: ./actions/bicep/storage.bicep
         parameters: location=${{ env.ENVIRONMENT_LOCATION }}
         deploymentMode: Validate
-        
+
+
+  Manual_approval:
+    name: manual approval
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - uses: trstringer/manual-approval@v1
+        with:
+          secret: ${{ github.TOKEN }}
+          approvers: bickyshaw98
+          minimum-approvals: 1
+          issue-title: "Deploying v1.3.5 to prod from staging"
+          issue-body: "Please approve or deny the deployment of version v1.3.5."
+          exclude-workflow-initiator-as-approver: false
+          additional-approved-words: ''
+          additional-denied-words: ''
+
   validate_changes:
     name: Validate changes using bicep what-if
     # The type of runner that the job will run on
