@@ -71,8 +71,6 @@ jobs:
     runs-on: ubuntu-latest
     needs: [lint_Sanity_Check, syntax_check, validate_changes]
     steps:
-    - name: ManualValidation@0
-      timeout-minutes: 60 # task times out in 1 hour
     - uses: actions/checkout@v3
     - uses: azure/login@v1
       name: Sign in to Azure
