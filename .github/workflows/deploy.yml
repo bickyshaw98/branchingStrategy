@@ -27,7 +27,18 @@ jobs:
     - name: Run Bicep linter
       run: |
         bicep build --stdout ./actions/bicep/storage.bicep
-        
+
+  ManualApprove:
+  needs: lint_Sanity_Check
+  environment:
+    name: approvers
+  runs-on: ubuntu-latest
+  steps:
+  - name: manual approve
+    run: |
+        echo "Manually approved"
+
+
   syntax_check:
     name: Syntax check using bicep validate
     runs-on: ubuntu-latest
