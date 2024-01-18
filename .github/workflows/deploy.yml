@@ -29,7 +29,6 @@ jobs:
         bicep build --stdout ./actions/bicep/storage.bicep
 
   ManualApprove:
-    needs: lint_Sanity_Check
     environment:
       name: approvers
     runs-on: ubuntu-latest
