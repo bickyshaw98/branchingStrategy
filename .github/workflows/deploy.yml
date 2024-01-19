@@ -1,5 +1,5 @@
 # This is a basic workflow to help you get started with Actions
-#just adding a comment.
+#just adding a comment..
 name: azure bicep deployment
 
 # Controls when the workflow will run
