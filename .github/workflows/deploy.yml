@@ -1,4 +1,5 @@
 # This is a basic workflow to help you get started with Actions
+
 #just adding a comment..
 name: azure bicep deployment
 
@@ -8,12 +9,16 @@ on:
   push:
     branches: [ main ]
   pull_request:
-    branches: [ main ]
+    branches: [ none ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+
+env:
+  AZURE_RESOURCEGROUP_NAME: demo-rg
+  ENVIRONMENT_LOCATION: EastUS
+
 jobs:
   # This workflow contains a single job called "build"
   bicep_build:
