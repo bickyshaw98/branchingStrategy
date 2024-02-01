@@ -23,6 +23,7 @@ jobs:
   # This workflow contains a single job called "build"
   #adding check user to block the user to not run pipeline unwantedly
   check-user:
+    name: authenticating users
     runs-on: ubuntu-latest
 
     steps:
