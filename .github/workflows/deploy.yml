@@ -20,6 +20,17 @@ env:
   ENVIRONMENT_LOCATION: EastUS
 
 jobs:
+#adding check user to block the user to not run pipeline unwantedly
+  check-user:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check User
+      run: |
+        if [ "${{ github.actor }}" == "BickyShaw" ]; then
+          echo "Unauthorized user. Exiting workflow."
+          exit 1
+        fi
   # This workflow contains a single job called "build"
   bicep_build:
     name: bicep build 
