@@ -22,7 +22,7 @@ env:
 
 jobs:
   # This workflow contains a single job called "build"
-  checking-valid users:
+  checking_valid_users:
     runs-on: ubuntu-latest
 
     steps:
