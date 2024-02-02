@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 #checking that main branch is restricting push or not.
-#restricting pull request for collabarators.
+#restricting pull request for collabarators..
 name: deploy pipeline
 
 
