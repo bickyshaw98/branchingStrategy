@@ -22,7 +22,20 @@ env:
 
 jobs:
   # This workflow contains a single job called "build"
-  
+  checking-valid users:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check user
+        run: |
+          if [ "${{ github.actor }}" != "bickyshaw98" ]; then
+            echo "User not allowed to run the workflow. Exiting."
+            exit 78  # Exit with a neutral exit code
+          fi
+
+      - name: Checkout code
+        uses: actions/checkout@v2
+
   bicep_build:
     name: bicep build 
     # The type of runner that the job will run on
